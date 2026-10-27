@@ -1,0 +1,18 @@
+flowchart TD
+    A([Start]) --> B[Initialize SQLite database]
+    B --> C[Load dashboard and expense records]
+    C --> D{User action}
+    D -->|Add expense| E[Validate date, category, description and amount]
+    E --> F{Valid input?}
+    F -->|No| G[Show validation message]
+    G --> D
+    F -->|Yes| H[Save record to SQLite]
+    H --> I[Refresh totals and table]
+    I --> D
+    D -->|Search| J[Filter saved records]
+    J --> D
+    D -->|Delete| K[Confirm and delete selected record]
+    K --> I
+    D -->|Export CSV| L[Write records to CSV file]
+    L --> D
+    D -->|Exit| M([End])

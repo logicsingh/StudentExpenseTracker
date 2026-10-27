@@ -1,0 +1,11 @@
+STUDENT EXPENSE TRACKER — SUBMISSION CHECKLIST
+
+Before submission:
+[ ] Fill in the cover-page details in PROJECT_REPORT.docx.
+[ ] Compare the report format with your faculty instructions.
+[ ] Run the application on your own laptop.
+[ ] Add a screenshot captured on your own laptop if required.
+[ ] Run: python -m unittest discover -s tests -v
+[ ] Practise explaining the database table, validation, search and CSV export.
+
+The application starts empty. Enter a few genuine test records before capturing screenshots for the demonstration.
