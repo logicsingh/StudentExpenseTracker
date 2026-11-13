@@ -44,6 +44,14 @@ class DatabaseTests(unittest.TestCase):
                 "2026-11-13", "Food", "Lunch", 0, self.db_path
             )
 
+    def test_validation_rejects_non_finite_amounts(self):
+        for amount in ("nan", "inf", "-inf"):
+            with self.subTest(amount=amount):
+                with self.assertRaises(ValueError):
+                    database.add_expense(
+                        "2026-11-13", "Food", "Lunch", amount, self.db_path
+                    )
+
     def test_validation_rejects_invalid_category(self):
         with self.assertRaises(ValueError):
             database.add_expense(
