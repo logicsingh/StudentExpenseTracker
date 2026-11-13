@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import math
 import sqlite3
 from datetime import date, datetime
 from pathlib import Path
@@ -64,6 +65,8 @@ def validate_expense(expense_date: str, category: str, description: str, amount:
         numeric_amount = float(amount)
     except (TypeError, ValueError):
         raise ValueError("Amount must be a valid number.")
+    if not math.isfinite(numeric_amount):
+        raise ValueError("Amount must be a finite number.")
     if numeric_amount <= 0:
         raise ValueError("Amount must be greater than zero.")
     if numeric_amount > 10_000_000:
